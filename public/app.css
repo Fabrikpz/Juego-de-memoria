@@ -1,0 +1,24 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 25px;
+  margin: 2px;
+}
+.container{
+  display: grid; 
+  grid-template-columns: repeat(8, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+}
+
+.elem{
+  background-color: red;
+  width: 100px;
+  height: 120px;
+  justify-self: center;
+}
+
+.names{
+  display: flex;
+  justify-content: space-between;
+}
