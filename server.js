@@ -5,26 +5,29 @@ const ejs = require('ejs');
 const path = require('path');
 const port = 2500;
 const app = express();
+const mongoose = require('mongoose');
+
+app.use(express.static('./', {
+	setHeaders: (res, path) => {
+		if (path.endsWith('.js')) {
+			res.setHeader('Content-Type', 'application/javascript');
+		}
+	}
+}));
 
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/imagenes', express.static(path.join(__dirname, 'public/imagenes')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/juego', (req, res) => {
   res.render('panel');
 });
-
-/*app.get('/inicio', (req, res) => {
-  const { name, edad, apellido } = req.body;
-  console.log(`Nombre: ${name}, Edad: ${edad}, Apellido: ${apellido}`);
-  let arr = {name:"patrisio", edad:"12",apellido:"gallo filon"}
-  res.render('panel', arr);
-});*/
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
