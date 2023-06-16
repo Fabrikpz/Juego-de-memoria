@@ -24,15 +24,21 @@ body{
 }
 
 .palyer1{
-  margin-right: 50px; 
+  margin-left:30px;
+  margin-right:0px;
 }
 
 .palyer2{
-  margin-right:50px;
+  margin-left:0px;
+  margin-right:30px;
 }
 
 .score1{
-  margin-left:30px;
-  justify-content: left;
+  position: relative;
+  left: -200px;
 }
 
+.score2{
+  position: relative;
+  left: 200px;
+}
