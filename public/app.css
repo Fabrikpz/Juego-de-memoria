@@ -13,7 +13,7 @@ body{
 
 .elem{
   background-color: red;
-  width: 100px;
+  width: 120px;
   height: 120px;
   justify-self: center;
 }
@@ -22,3 +22,17 @@ body{
   display: flex;
   justify-content: space-between;
 }
+
+.palyer1{
+  margin-right: 50px; 
+}
+
+.palyer2{
+  margin-right:50px;
+}
+
+.score1{
+  margin-left:30px;
+  justify-content: left;
+}
+
