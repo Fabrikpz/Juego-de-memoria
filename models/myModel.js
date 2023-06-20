@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 const carta1Schema = new mongoose.Schema({
     nombre: {
         type: String,
-        required: [true, "pone nomber"],
+        required: [true, "Por favor, proporciona un nombre"],
     },
     ruta: {
         type: String,
-        required: [true, "pone ruta"],
+        required: [true, "Por favor, proporciona una ruta"],
     },
 });
 
-const carta1 = mongoose.model('carta1', carta1Schema);
+const Carta1 = mongoose.model('carta1', carta1Schema);
 
-module.exports = carta1;
+module.exports = Carta1;
