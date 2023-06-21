@@ -1,7 +1,7 @@
-const myController = require('../controllers/myController');
+const myController = require('../controllers/myController.js');
 const express = require('express');
 const router = express.Router();
 
-router.route('/juego').post(myController.crearDoc);
+router.route('/cartas').post(myController.crearDoc);
 
 module.exports = router;

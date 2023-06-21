@@ -1,10 +1,10 @@
-const express = require("express");
+/*const express = require("express");
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-const myRouter = require("./routes/myRouter");
+const myRouter = require("./routes/myRouter.js");
 
 app.use(express.static('./', {
 	setHeaders: (res, path) => {
@@ -26,4 +26,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/juego", myRouter);
-module.exports = app;
+module.exports = app;*/
+//ME OLVIDE, NO ME ACUERDO DE ESO

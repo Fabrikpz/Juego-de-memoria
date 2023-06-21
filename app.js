@@ -6,8 +6,8 @@ let score1 = 0;
 let score2 = 0;
 puntos1.textContent = score1;
 puntos2.textContent = score2;
-let jugador1 = 0;
-let jugador2 = 1;
+let turnoJugador1 = 0;
+let turnoJugador2 = 1;
 let clickedCards = [];
 
 shuffleArray(types);
@@ -24,7 +24,7 @@ cartas.forEach((carta, index) => {
         const type2 = clickedCards[1].classList[1];
 
         // Turno del jugador 1
-        if (jugador1 % 2 === 0) {
+        if (turnoJugador1 % 2 === 0) {
           if (type1 === type2 && clickedCards[0] !== clickedCards[1]) {
             console.log("Two cards with the same type clicked! JUGADOR 1");
 
@@ -44,11 +44,11 @@ cartas.forEach((carta, index) => {
             }, 1000);
           }
 
-          jugador1++;
-          jugador2++;
+          turnoJugador1++;
+          turnoJugador2++;
         }
         // Turno del jugador 2
-        else if(jugador2 % 2 === 0){
+        else if(turnoJugador2 % 2 === 0){
           if (type1 === type2 && clickedCards[0] !== clickedCards[1]) {
             console.log("Two cards with the same type clicked! JUGADOR 2");
 
@@ -68,8 +68,8 @@ cartas.forEach((carta, index) => {
             }, 1000);
           }
 
-          jugador2++;
-          jugador1++;
+          turnoJugador2++;
+          turnoJugador1++;
         }
 
         clickedCards = [];
