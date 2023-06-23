@@ -36,7 +36,7 @@ cartas.forEach((carta, index) => {
             });
           } else {
             console.log("Two different cards clicked! JUGADOR 1");
-
+            //tiempo de espera antes de cambiar el estado *flipped*
             setTimeout(() => {
               clickedCards.forEach((clickedCard) => {
                 clickedCard.classList.remove("flipped");
