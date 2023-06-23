@@ -43,7 +43,8 @@ mongoose.connect(uri, {
     console.error('Error al conectar a la base de datos:', error);
   });
   
-app.use("/juego", myRouter);
+//Rutas
+app.use("/", myRouter);
 
 app.get('/juego', (req, res) => {
   res.render('panel');
