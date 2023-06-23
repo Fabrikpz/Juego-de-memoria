@@ -30,7 +30,7 @@ app.use('/imgs', express.static(path.join(__dirname, 'public/imgs')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const uri = "mongodb+srv://Fabrikpz:lapetit666@cluster0.qn65kvc.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://Fabrikpz:lapetit666@cluster0.qn65kvc.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,

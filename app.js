@@ -15,7 +15,7 @@ assignTypesToCards();
 
 cartas.forEach((carta, index) => {
   carta.addEventListener("click", () => {
-    if (!carta.classList.contains("matched")) {
+    if (!carta.classList.contains("matched")) { //si las 2 cartas a estan matched se ponen en flipped
       carta.classList.add("flipped");
       clickedCards.push(carta);
 
@@ -78,6 +78,7 @@ cartas.forEach((carta, index) => {
   });
 });
 
+//para q aparezcan en distintas posiciones las cartas
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -85,6 +86,7 @@ function shuffleArray(array) {
   }
 }
 
+//asignar los tipos de cartas
 function assignTypesToCards() {
   cartas.forEach((carta, index) => {
     carta.classList.add(types[index]);

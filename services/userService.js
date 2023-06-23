@@ -1,9 +1,9 @@
 //CAMBIAR EL "RUTA" POR EL NOMBRE DE LA COLECCION
 
-export const getUserDetails = (db, ruta) => {
+/*export const getUserDetails = (db, ruta) => {
     return new Promise((resolve, reject) => {
         db.collection('alumnos')
-            .find({ 'alumnos': ruta })
+            .find({ 'ruta': ruta })
             .toArray((err, docs) => {
                 if (err) {
                     reject(err);
@@ -14,4 +14,4 @@ export const getUserDetails = (db, ruta) => {
                 }
             });
     });
-};
+};*/
