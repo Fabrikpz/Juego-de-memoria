@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-const port = 5000;
+const port = 2500;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
 
@@ -30,7 +30,7 @@ app.use('/imgs', express.static(path.join(__dirname, 'public/imgs')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const uri = "mongodb+srv://pahan:NGfcLCcqlCjwxvck@cluster0.esjmoci.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://Fabrikpz:lapetit666@cluster0.qn65kvc.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
