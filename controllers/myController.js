@@ -33,20 +33,33 @@ exports.crearDoc = async (req, res) => {
     }
 };
 
-exports.getUserDetails = (req, res) => {
-    const getUserDetails = (db, ruta) => {
+exports.getUserDetails = async (req, res) => {
+    const getUserDetails = (ruta) => {
         return new Promise((resolve, reject) => {
-            db.collection('cartas')
-                .find({ 'ruta': ruta })
-                .toArray((err, docs) => {
-                    if (err) {
-                        reject(err);
-                    } else if (docs && docs.length > 0) {
-                        resolve(docs[0]);
-                    } else {
-                        reject(new Error('No se encontro la ruta'));
-                    }
-                });
+            Carta.findOne({ 'ruta': ruta }, (err, doc) => {
+                if (err) {
+                    reject(err);
+                } else if (doc) {
+                    resolve(doc);
+                } else {
+                    reject(new Error('No se encontró la ruta'));
+                }
+            });
         });
     };
-}
+
+    try {
+        let uname = req.body.ruta;
+        let userDetails = await getUserDetails(uname);
+        res.status(200).send({
+            status: true,
+            response: userDetails
+        });
+    } catch (error) {
+        res.status(500).send({
+            status: false,
+            error: error.message || 'Error desconocido'
+        });
+    }
+};
+
