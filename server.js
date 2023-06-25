@@ -5,11 +5,12 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-const port = 2500;
+const port = 3200;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
 const data = require('./data.js');
 const axios = require("axios");
+const Swal = require('sweetalert2')
 
 app.use(cors());
 
@@ -48,7 +49,13 @@ mongoose.connect(uri, {
 //Rutas
 app.use("/", myRouter);
 
-app.listen(2500, () => {
+
+app.get('/juego', (req, res) => {
+  res.render('panel');
+  
+});
+
+app.listen(3200, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
 

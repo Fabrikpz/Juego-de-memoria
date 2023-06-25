@@ -10,10 +10,16 @@ let turnoJugador1 = 0;
 let turnoJugador2 = 1;
 let clickedCards = [];
 
+const Swal = require('sweetalert2')
+
+
 shuffleArray(types);
 assignTypesToCards();
 
+
+
 cartas.forEach((carta, index) => {
+  Swal.fire("jelou worl")
   carta.addEventListener("click", () => {
     if (!carta.classList.contains("matched")) {
       carta.classList.add("flipped");
