@@ -1,4 +1,5 @@
 const Carta = require('../models/myModel.js');
+const { obtenerValores, enviarValores } = require('../data.js');
 
 exports.crearDoc = async (req, res) => {
     let cartasArr = [
@@ -25,6 +26,9 @@ exports.crearDoc = async (req, res) => {
             const carta = new Carta(cartaObj);
             await carta.save();
         }
+
+        const cartasGuardadas = await Carta.find(); // Recuperar todas las cartas guardadas
+
         console.log('Las nuevas cartas se han guardado en la base de datos');
         res.status(200).json({ message: 'Documentos con las cartas guardados' });
     } catch (error) {
@@ -33,33 +37,13 @@ exports.crearDoc = async (req, res) => {
     }
 };
 
-exports.getUserDetails = async (req, res) => {
-    const getUserDetails = (ruta) => {
-        return new Promise((resolve, reject) => {
-            Carta.findOne({ 'ruta': ruta }, (err, doc) => {
-                if (err) {
-                    reject(err);
-                } else if (doc) {
-                    resolve(doc);
-                } else {
-                    reject(new Error('No se encontró la ruta'));
-                }
-            });
-        });
-    };
-
+exports.obtenerRutas = async (req, res) => {
     try {
-        let uname = req.body.ruta;
-        let userDetails = await getUserDetails(uname);
-        res.status(200).send({
-            status: true,
-            response: userDetails
-        });
+        const cartas = await Carta.find({}, 'ruta'); // Obtener solo la propiedad 'ruta'
+        const rutas = cartas.map(carta => carta.ruta); // Extraer los valores de 'ruta'
+        res.status(200).json({ rutas });
     } catch (error) {
-        res.status(500).send({
-            status: false,
-            error: error.message || 'Error desconocido'
-        });
+        console.error('Se ha producido un error al obtener las rutas:', error);
+        res.status(500).json({ error: 'Error al obtener las rutas' });
     }
 };
-

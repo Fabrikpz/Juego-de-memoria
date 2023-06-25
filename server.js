@@ -8,6 +8,8 @@ const path = require('path');
 const port = 2500;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
+const data = require('./data.js');
+const axios = require("axios");
 
 app.use(cors());
 
@@ -40,17 +42,13 @@ mongoose.connect(uri, {
     console.log('Conexión a la base de datos establecida');
   })
   .catch((error) => {
-    console.error('Error al conectar a la base de datos:', error);
+    console.error(error);
   });
-  
+
 //Rutas
 app.use("/", myRouter);
 
-app.get('/juego', (req, res) => {
-  res.render('panel');
-});
-
-app.listen(port, () => {
+app.listen(2500, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
 
