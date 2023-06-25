@@ -45,9 +45,21 @@ exports.renderJuego = async (req, res) => {
 
         const cartasDuplicadas = cartas.concat(cartas); //duplicar las rutas para que se muestren 2 cartas iguales
 
-        res.render('panel', { cartas: cartasDuplicadas });
+        const shuffledCartas = shuffleArray(cartasDuplicadas);
+
+        res.render('panel', { cartas: shuffledCartas });
     } catch (error) {
         console.error('Se ha producido un error al obtener las cartas:', error);
         res.status(500).json({ error: 'Error al obtener las cartas' });
     }
 };
+
+// Helper function to shuffle an array
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}

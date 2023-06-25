@@ -1,5 +1,5 @@
 let cartas = document.querySelectorAll(".elem");
-let types = ['type1', 'type1', 'type2', 'type2', 'type3', 'type3', 'type4', 'type4', 'type5', 'type5', 'type6', 'type6', 'type7', 'type7', 'type8', 'type8'];
+//let types = ['type1', 'type1', 'type2', 'type2', 'type3', 'type3', 'type4', 'type4', 'type5', 'type5', 'type6', 'type6', 'type7', 'type7', 'type8', 'type8'];
 let puntos1 = document.getElementById("score1");
 let puntos2 = document.getElementById("score2");
 let score1 = 0;
@@ -10,16 +10,13 @@ let turnoJugador1 = 0;
 let turnoJugador2 = 1;
 let clickedCards = [];
 
-const Swal = require('sweetalert2')
+const Carta = import('../models/myModel.js');
 
-
-shuffleArray(types);
+//shuffleArray(types);
 assignTypesToCards();
 
 
-
 cartas.forEach((carta, index) => {
-  Swal.fire("jelou worl")
   carta.addEventListener("click", () => {
     if (!carta.classList.contains("matched")) {
       carta.classList.add("flipped");
@@ -86,6 +83,7 @@ cartas.forEach((carta, index) => {
 });
 
 //para que las cartas cambien de tipo
+//esto no se necesitaria idealmente si funcionara el assign TypesToCards
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -93,11 +91,24 @@ function shuffleArray(array) {
   }
 }
 
-function assignTypesToCards() {
-  cartas.forEach((carta, index) => {
-    carta.classList.add(types[index]);
-  });
+//nose hermano no funbca
+async function assignTypesToCards() {
+  try {
+    const cartasFromDatabase = await Carta.find({}, 'tipo').limit(16);
+
+    const shuffledTypes = shuffleArray(types.slice(0, cartasFromDatabase.length));
+
+    cartas.forEach((carta, index) => {
+      const tipo = cartasFromDatabase[index].tipo;
+      const classToAdd = shuffledTypes[tipo];
+
+      carta.classList.add(classToAdd);
+    });
+  } catch (error) {
+    console.error('Error retrieving cartas from the database:', error);
+  }
 }
+
 
 function checkWinner() {
   const matchedCards = document.querySelectorAll(".matched");

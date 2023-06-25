@@ -5,12 +5,11 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-const port = 3200;
+const port = 2500;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
 const data = require('./data.js');
 const axios = require("axios");
-const Swal = require('sweetalert2')
 
 app.use(cors());
 
@@ -55,7 +54,7 @@ app.get('/juego', (req, res) => {
   
 });
 
-app.listen(3200, () => {
+app.listen(2500, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
 
