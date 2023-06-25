@@ -15,7 +15,13 @@
     <h2 class="palyer2"> Pahan Impsum</h2>
   </div>
   <div class="container">
-    <div class="elem">1</div>
+    <% cartas.forEach(carta => { %>
+      <div class="elem">
+        <img src="<%= carta.ruta %>" alt="<%= carta.nombre %>">
+      </div>
+    <% }); %>
+
+    <!-- <div class="elem">1</div>
     <div class="elem">2</div>
     <div class="elem">3</div>
     <div class="elem">4</div>
@@ -46,7 +52,7 @@
     <div class="elem">29</div>
     <div class="elem">30</div>
     <div class="elem">31</div>
-    <div class="elem">32</div>
+    <div class="elem">32</div> -->
   </div>
   <script src="../app.js"></script>
   <script type="module" src="../routes/myRouter.js"></script>

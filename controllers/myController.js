@@ -27,7 +27,7 @@ exports.crearDoc = async (req, res) => {
             await carta.save();
         }
 
-        const cartasGuardadas = await Carta.find(); // Recuperar todas las cartas guardadas
+        const cartasGuardadas = await Carta.find(); //guardar en una variable todas las cartas guardadas
 
         console.log('Las nuevas cartas se han guardado en la base de datos');
         res.status(200).json({ message: 'Documentos con las cartas guardados' });
@@ -37,13 +37,17 @@ exports.crearDoc = async (req, res) => {
     }
 };
 
-exports.obtenerRutas = async (req, res) => {
+//obtiene las rutas de la base de datos y las renderiza en la vista
+exports.renderJuego = async (req, res) => {
     try {
-        const cartas = await Carta.find({}, 'ruta'); // Obtener solo la propiedad 'ruta'
-        const rutas = cartas.map(carta => carta.ruta); // Extraer los valores de 'ruta'
-        res.status(200).json({ rutas });
+        const cartas = await Carta.find({}, 'ruta').limit(16); //obtener las primeras 16 cartas
+        //const rutas = cartas.map(carta => carta.ruta); //extraer los valores de 'ruta'
+
+        const cartasDuplicadas = cartas.concat(cartas); //duplicar las rutas para que se muestren 2 cartas iguales
+
+        res.render('panel', { cartas: cartasDuplicadas });
     } catch (error) {
-        console.error('Se ha producido un error al obtener las rutas:', error);
-        res.status(500).json({ error: 'Error al obtener las rutas' });
+        console.error('Se ha producido un error al obtener las cartas:', error);
+        res.status(500).json({ error: 'Error al obtener las cartas' });
     }
 };
