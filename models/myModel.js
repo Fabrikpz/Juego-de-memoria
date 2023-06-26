@@ -9,6 +9,10 @@ const cartaSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    tipo: {
+        type: String,
+        required: true,
+    }
 });
 
 const Carta = mongoose.model('Carta', cartaSchema);

@@ -8,8 +8,6 @@ const path = require('path');
 const port = 2500;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
-const data = require('./data.js');
-const axios = require("axios");
 
 app.use(cors());
 
@@ -47,12 +45,6 @@ mongoose.connect(uri, {
 
 //Rutas
 app.use("/", myRouter);
-
-
-app.get('/juego', (req, res) => {
-  res.render('panel');
-  
-});
 
 app.listen(2500, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
