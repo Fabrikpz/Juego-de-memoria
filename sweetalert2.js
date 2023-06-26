@@ -1,2 +1,1 @@
-import Swal from 'sweetalert2';
-
+//que gran archivo XD ZAIBY CANON <3

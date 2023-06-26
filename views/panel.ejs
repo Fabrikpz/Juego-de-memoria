@@ -35,7 +35,8 @@
     html:
       '<input id="player1Input" class="swal2-input" placeholder="Jugador 1">' +
       '<input id="player2Input" class="swal2-input" placeholder="Jugador 2">',
-    focusConfirm: false,
+    focusConfirm: false, //el mouse no se enfoca en el boton de salida (boton "OK")
+    //actualiza el valor de player1 y player2
     preConfirm: () => {
       const player1 = document.getElementById('player1Input').value;
       const player2 = document.getElementById('player2Input').value;
