@@ -9,11 +9,12 @@
 </head>
 <body>
   <div class="names">
-    <h2 class="palyer1"> Patricio Lorem</h2>
-    <h2 class="score1 palyer1" id="score1"></h2>
-    <h2 class="score2 palyer2" id="score2"></h2>
-    <h2 class="palyer2"> Pahan Impsum</h2>
+    <h2 class="player1" id="player1"></h2>
+    <h2 class="score1 player1" id="score1"></h2>
+    <h2 class="player2" id="score2"></h2>
+    <h2 class="player2" id="player2"></h2>
   </div>
+  
   <div class="container">
     <% cartas.forEach(carta => { %>
       <div class="elem">
@@ -22,7 +23,29 @@
     <% }); %>
   </div>
   
+  <!-- Agrega el botón -->
+  <button onclick="mostrarAlerta()">Mostrar Alerta</button>
+  
   <script src="../app.js"></script>
-  <script type="module" src="../routes/myRouter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function mostrarAlerta() {
+  Swal.fire({
+    title: 'Ingresa los nombres de los jugadores',
+    html:
+      '<input id="player1Input" class="swal2-input" placeholder="Jugador 1">' +
+      '<input id="player2Input" class="swal2-input" placeholder="Jugador 2">',
+    focusConfirm: false,
+    preConfirm: () => {
+      const player1 = document.getElementById('player1Input').value;
+      const player2 = document.getElementById('player2Input').value;
+      
+      document.getElementById('player1').textContent = player1;
+      document.getElementById('player2').textContent = player2;
+    }
+  });
+}
+
+  </script>
 </body>
 </html>
