@@ -1,44 +1,62 @@
-body{
+body {
   font-family: 'Montserrat', sans-serif;
   margin-left: 25px;
-  margin: 2px;
+  margin: 5px;
 }
-.container{
-  display: grid; 
+
+.container {
+  display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   justify-items: stretch;
 }
 
-.elem{
+.elem {
   background-color: red;
   width: 120px;
   height: 120px;
   justify-self: center;
 }
 
-.names{
+.names {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.palyer1{
-  margin-left:30px;
-  margin-right:0px;
+.player1 {
+  margin-right: auto; /* Ajustado margen derecho para el Jugador 1 */
+  margin-left: 0;
 }
 
-.palyer2{
-  margin-left:0px;
-  margin-right:30px;
+.player2 {
+  margin-left: auto; /* Ajustado margen izquierdo para el Jugador 2 */
+  margin-right: 0;
 }
 
-.score1{
+.score1 {
   position: relative;
-  left: -200px;
+  left: -80px;
 }
 
-.score2{
+.score2 {
   position: relative;
-  left: 200px;
+  left: 80px;
+}
+
+.profilePic1 {
+  width: 50px;
+  height: 50px;
+  background-color: brown;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.profilePic2 {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  margin-left: 10px;
+  border-radius: 4px;
 }

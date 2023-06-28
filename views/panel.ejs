@@ -9,44 +9,30 @@
 </head>
 <body>
   <div class="names">
-    <h2 class="player1" id="player1"></h2>
+    <div class="profilePic1"></div>
+    <h2 class="player1" id="player1">Jugador 1</h2>
     <h2 class="score1 player1" id="score1"></h2>
-    <h2 class="player2" id="score2"></h2>
-    <h2 class="player2" id="player2"></h2>
+    <h2 class="score2 player2" id="score2"></h2>
+    <h2 class="player2" id="player2">Jugador 2</h2>
+    <div class="profilePic2"></div>
   </div>
-  
+
   <div class="container">
-    <% cartas.forEach(carta => { %>
+    <% cartas.forEach(carta=> { %>
       <div class="elem">
         <img src="<%= carta.ruta %>" alt="<%= carta.nombre %>">
       </div>
-    <% }); %>
+      <% }); %>
   </div>
-  
-  <!-- Agrega el botón -->
-  <button onclick="mostrarAlerta()">Mostrar Alerta</button>
-  
-  <script src="../app.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    function mostrarAlerta() {
-  Swal.fire({
-    title: 'Ingresa los nombres de los jugadores',
-    html:
-      '<input id="player1Input" class="swal2-input" placeholder="Jugador 1">' +
-      '<input id="player2Input" class="swal2-input" placeholder="Jugador 2">',
-    focusConfirm: false, //el mouse no se enfoca en el boton de salida (boton "OK")
-    //actualiza el valor de player1 y player2
-    preConfirm: () => {
-      const player1 = document.getElementById('player1Input').value;
-      const player2 = document.getElementById('player2Input').value;
-      
-      document.getElementById('player1').textContent = player1;
-      document.getElementById('player2').textContent = player2;
-    }
-  });
-}
 
-  </script>
+  <button onclick="mostrarAlerta()">Configuración de jugadores</button>
+  <button onclick="CambiarFoto(1)">Cambiar foto Jugador 1</button>
+  <button onclick="CambiarFoto(2)">Cambiar foto Jugador 2</button>
+  <button id="popUpBtn" onclick="letMePopUp()">let me pop up</button>
+
+  <script src="../app.js"></script>
+  <script src="../sweetalert2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="node_modules/spin.js/spin.js"></script>
 </body>
 </html>

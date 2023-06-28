@@ -17,7 +17,7 @@ cartas.forEach((carta, index) => {
       carta.classList.add("flipped");
       clickedCards.push(carta);
 
-      if (clickedCards.length === 2) { 
+      if (clickedCards.length === 2) {
         const type1 = clickedCards[0].classList[1];
         const type2 = clickedCards[1].classList[1];
 
