@@ -72,7 +72,7 @@ const letMePopUp = async () => {
         input: 'text',
         inputLabel: 'Your IP address is:',
         inputValue: inputValue,
-        showCancelButton: true,
+        //showCancelButton: true,
         inputValidator: (value) => {
             if (!value) {
                 return 'You need to write something!';

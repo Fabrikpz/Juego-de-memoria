@@ -17,6 +17,7 @@ body {
   width: 120px;
   height: 120px;
   justify-self: center;
+  border-radius: 4px;
 }
 
 .names {
