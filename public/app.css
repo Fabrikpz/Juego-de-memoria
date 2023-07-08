@@ -1,14 +1,16 @@
 body {
   background-color: gray;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-left: 25px;
   margin: 5px;
+  margin-bottom: 40px;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-column-gap: 20px;
+  grid-column-gap: 0px;
+  grid-gap: 0px;
   grid-row-gap: 20px;
   justify-items: stretch;
 }
@@ -35,7 +37,6 @@ img{
   height: 100px;
 }
 .names {
-  font-family: 'Open Sans', sans-serif;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -80,5 +81,5 @@ img{
 
 .btn{
   position: relative;
-  bottom: 40px;
+  bottom: 0;
 }

@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/app.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="names">
@@ -22,16 +24,16 @@
 
   <div class="container">
     <% cartas.forEach(carta=> { %>
-      <div class="elem" onclick="cardAnimation()">
+      <div class="elem">
         <img src="<%= carta.ruta %>" alt="<%= carta.nombre %>">
       </div>
       <% }); %>
   </div>
 
-  <button onclick="mostrarAlerta()">Configuración de jugadores</button>
-  <button onclick="CambiarFoto(1)">Cambiar foto Jugador 1</button>
-  <button onclick="CambiarFoto(2)">Cambiar foto Jugador 2</button>
-  <button id="popUpBtn" onclick="letMePopUp()">let me pop up</button>
+  <button onclick="mostrarAlerta()" class="btn">Configuración de jugadores</button>
+  <button onclick="CambiarFoto(1)" class="btn">Cambiar foto Jugador 1</button>
+  <button onclick="CambiarFoto(2)" class="btn">Cambiar foto Jugador 2</button>
+  <button id="popUpBtn" onclick="letMePopUp()" class="btn">let me pop up</button>
 
   <script src="../app.js"></script>
   <script src="../sweetalert2.js"></script>
