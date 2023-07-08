@@ -8,6 +8,7 @@
   <link rel="icon" href="../public/imgs/hollow.ico" type="image/x-icon">
   <link rel="stylesheet" href="/app.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
   <div class="names">
@@ -21,13 +22,12 @@
 
   <div class="container">
     <% cartas.forEach(carta=> { %>
-      <div class="elem">
+      <div class="elem" onclick="cardAnimation()">
         <img src="<%= carta.ruta %>" alt="<%= carta.nombre %>">
       </div>
       <% }); %>
   </div>
 
-  <h1 class="animate__animated animate__bounce">An animated element</h1>
   <button onclick="mostrarAlerta()">Configuración de jugadores</button>
   <button onclick="CambiarFoto(1)">Cambiar foto Jugador 1</button>
   <button onclick="CambiarFoto(2)">Cambiar foto Jugador 2</button>

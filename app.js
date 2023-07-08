@@ -13,9 +13,23 @@ let clickedCards = [];
 
 assignTypesToCards();
 
-cartas.forEach((carta, index) => {
+const cards = document.querySelectorAll('.elem');
+
+cards.forEach((carta, index) => {
   carta.addEventListener("click", () => {
-    carta.classList.add('animate_animated', 'animate_flipInY');
+    carta.classList.add('animate__flipOutY');
+
+    setTimeout(() => {
+      carta.classList.add('animate__flipOutY');
+      
+      // Wait for the fadeOut animation to complete
+      setTimeout(() => {
+        const imgElement = carta.querySelector('img');
+        imgElement.parentNode.removeChild(imgElement);
+      }, 1000); // Adjust the duration to match the animation time
+    }, 500);
+
+
     if (!carta.classList.contains("matched")) {
       carta.classList.add("flipped");
       clickedCards.push(carta);

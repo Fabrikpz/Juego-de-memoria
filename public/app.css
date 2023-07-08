@@ -1,4 +1,5 @@
 body {
+  background-color: gray;
   font-family: 'Montserrat', sans-serif;
   margin-left: 25px;
   margin: 5px;
@@ -13,14 +14,29 @@ body {
 }
 
 .elem {
+  box-shadow: 20px 20px 50px 15px rgb(60, 60, 60);
   background-color: red;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 110px;
   justify-self: center;
   border-radius: 4px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+  
 }
 
+.elem:hover {
+  top: -10px;
+}
+
+img{
+  width: 90px;
+  height: 100px;
+}
 .names {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,4 +76,9 @@ body {
   background-color: blue;
   margin-left: 10px;
   border-radius: 4px;
+}
+
+.btn{
+  position: relative;
+  bottom: 40px;
 }
