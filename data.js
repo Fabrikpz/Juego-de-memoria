@@ -1,1 +1,0 @@
-//saque todo a la mrd de este archivo peruano no sirve un qlo, tmb eliminé el config.js, bien inutil era ese tmb
