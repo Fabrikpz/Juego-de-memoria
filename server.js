@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-const port = 2500;
+const port = 3000;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
 
