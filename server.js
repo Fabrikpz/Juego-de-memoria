@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const myRouter = require("./routes/myRouter.js");
 const cors = require('cors');
 
@@ -44,9 +44,13 @@ mongoose.connect(uri, {
   });
 
 //Rutas
+app.get('/', (req, res) => {
+  res.redirect('/juego');  // Redirigir al endpoint principal
+});
+
 app.use("/", myRouter);
 
-app.listen(2500, () => {
+app.listen(3000, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
 
